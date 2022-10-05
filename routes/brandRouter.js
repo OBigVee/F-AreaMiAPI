@@ -1,17 +1,18 @@
 const express = require('express')
-const brands = require("../database/brands.json");
+//const brands = require('../database/brands.json');
+//const connectDB = require('.././database/db')
+//const {ObjectId} = require("mongodb");
+
+const brandControllers = require('../controllers/brandControllers')
+
 const brandRouter = express.Router()
 
 brandRouter.route('/brands')
-    .get((req, res) => {
-        res.json({brands})
-    })
+    .get(brandControllers.index)
+    .post(brandControllers.createNewBrand)
 
-    .post((req, res) => {
-        res.send("brand added successfully")
-    })
+brandRouter.route('/brands/:id')
+    .get( brandControllers.getMeABrand)
+    .patch(brandControllers.updateBrandInfo)
 
-brandRouter.get('/brands/:id', (req, res) => {
-    res.json(brands[req.params.id])
-})
 module.exports = brandRouter;
