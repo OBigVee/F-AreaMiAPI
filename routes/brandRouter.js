@@ -12,7 +12,7 @@ brandRouter.route('/brands')
     .post(brandControllers.createNewBrand)
 
 brandRouter.route('/brands/:id')
-    .get( brandControllers.getMeABrand)
+    .get(brandControllers.getMeABrand)
     .patch(brandControllers.updateBrandInfo)
 
 module.exports = brandRouter;
