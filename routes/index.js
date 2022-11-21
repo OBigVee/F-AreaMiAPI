@@ -9,10 +9,10 @@ const router = express.Router()
 router.route('/').get((req, res) => {
     res.json({data: "Welcome to AreaMI !!!"})
 })
-
+router.use('/auth', authRouter)
 router.use(brandRouter)
 router.use(profileRouter)
-router.use('/auth',authRouter)
+
 
 
 module.exports = router;

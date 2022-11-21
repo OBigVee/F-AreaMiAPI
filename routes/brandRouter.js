@@ -4,14 +4,18 @@ const express = require('express')
 //const {ObjectId} = require("mongodb");
 
 const brandControllers = require('../controllers/brandControllers')
+//const auth = require('../middleware/auth')
 
 const brandRouter = express.Router()
 
-brandRouter.route('/brands')
+//brandRouter.use(auth())
+brandRouter
+    .route('/brands')
     .get(brandControllers.index)
     .post(brandControllers.createNewBrand)
 
-brandRouter.route('/brands/:id')
+brandRouter
+    .route('/brands/:id')
     .get(brandControllers.getMeABrand)
     .patch(brandControllers.updateBrandInfo)
 
